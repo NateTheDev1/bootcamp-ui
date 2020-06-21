@@ -1,10 +1,16 @@
 import React from 'react'
 
-import { ExampleComponent } from 'bootcamp-ui'
+import { ExampleComponent, Button } from 'bootcamp-ui'
 import 'bootcamp-ui/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <div style={{ margin: '0 auto', maxWidth: '1440px', textAlign: 'center' }}>
+      <Button onClick={() => console.log('clicked')} textColor={4}>
+        Hello
+      </Button>
+    </div>
+  )
 }
 
 export default App

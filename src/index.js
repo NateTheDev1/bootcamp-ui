@@ -1,6 +1,7 @@
 import React from 'react'
+import Button from './components/Button'
 
-export const ExampleComponent = ({ text }) => {
+const ExampleComponent = ({ text }) => {
   const styles = {
     title: {
       color: 'blue'
@@ -8,3 +9,5 @@ export const ExampleComponent = ({ text }) => {
   }
   return <div style={styles.title}>Example Component: {text}</div>
 }
+
+export { ExampleComponent, Button }
