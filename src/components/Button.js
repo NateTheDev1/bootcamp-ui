@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles.module.css'
 import PropTypes from 'prop-types'
 
 const Button = ({
@@ -11,7 +12,8 @@ const Button = ({
   height,
   theme,
   variant,
-  type
+  type,
+  semantic
 }) => {
   const generateVariantDark = () => {
     switch (variant) {
@@ -29,20 +31,45 @@ const Button = ({
 
   let styles
 
-  switch (theme) {
-    case 'dark':
-      styles = {
-        ...generateVariantDark(),
-        ...style
-      }
-    default:
-      styles = {
-        color: textColor !== undefined ? textColor : 'black',
-        width: width !== undefined ? width : '300px',
-        height: height !== undefined ? height : '50px',
-        ...generateVariantLight(),
-        ...style
-      }
+  if (!semantic) {
+    switch (theme) {
+      case 'dark':
+        styles = {
+          ...generateVariantDark(),
+          ...style
+        }
+      default:
+        styles = {
+          border: 'none',
+          color: textColor !== undefined ? textColor : 'white',
+          width: width !== undefined ? width : '300px',
+          height: height !== undefined ? height : '50px',
+          background: 'black',
+          transition: '1s',
+          ...generateVariantLight(),
+          ...style,
+          '&:hover': {
+            background: 'white',
+            cursor: 'pointer',
+            boxShadow: '0px 10px 13px -7px #000000'
+          }
+        }
+    }
+  }
+
+  if (semantic) {
+    switch (semantic) {
+      case 'danger':
+        styles = {
+          ...generateVariantDark(),
+          ...style
+        }
+      default:
+        styles = {
+          ...generateVariantDark(),
+          ...style
+        }
+    }
   }
 
   Button.PropTypes = {
@@ -54,11 +81,15 @@ const Button = ({
   }
 
   return (
-    <React.Fragment>
-      <button style={styles} disabled={disabled} onClick={onClick} type={type}>
-        {children}
-      </button>
-    </React.Fragment>
+    <button
+      style={styles}
+      disabled={disabled}
+      onClick={onClick}
+      type={type}
+      className='button'
+    >
+      {children}
+    </button>
   )
 }
 

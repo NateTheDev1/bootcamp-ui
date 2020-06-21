@@ -6,9 +6,7 @@ import 'bootcamp-ui/dist/index.css'
 const App = () => {
   return (
     <div style={{ margin: '0 auto', maxWidth: '1440px', textAlign: 'center' }}>
-      <Button onClick={() => console.log('clicked')} textColor={4}>
-        Hello
-      </Button>
+      <Button onClick={() => console.log('clicked')}>Hello</Button>
     </div>
   )
 }
