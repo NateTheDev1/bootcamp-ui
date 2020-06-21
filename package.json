@@ -1,7 +1,7 @@
 {
   "name": "bootcamp-ui",
   "version": "1.0.0",
-  "description": "Made with create-react-library",
+  "description": "A prototyping based component library made for easy and quick UI development in React. Made for bootcamp students by a bootcamp student.",
   "author": "NateTheDev1",
   "license": "MIT",
   "repository": "NateTheDev1/bootcamp-ui",
