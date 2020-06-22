@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, FlexContainer, TextInput } from 'bootcamp-ui'
+import { Button, FlexContainer, TextInput, FlexItem } from 'bootcamp-ui'
 
 const App = () => {
   return (
@@ -11,10 +11,12 @@ const App = () => {
     >
       <Button onClick={() => console.log('clicked')}>EXIT</Button>
 
-      <TextInput
-        onChange={() => console.log('inputing')}
-        placeholder='Username'
-      />
+      <FlexItem style={{ border: '1px solid red' }}>
+        <TextInput
+          onChange={() => console.log('inputing')}
+          placeholder='Username'
+        />
+      </FlexItem>
     </FlexContainer>
   )
 }
