@@ -2,12 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-/**
- *  Bootcamp-UI Flex Container
- *
- * @version 0.09
- */
-
 const Div = styled.div`
   display: flex;
   margin: 0 auto;
@@ -25,9 +19,9 @@ const Div = styled.div`
       return props.align
     }
   }};
-  direction: ${(props) => {
-    if (props.direction !== 'row' || 'column') {
-      return 'row'
+  flex-direction: ${(props) => {
+    if (props.direction === 'column') {
+      return 'column'
     } else {
       return props.direction
     }
@@ -44,9 +38,15 @@ const Div = styled.div`
         return '1440px'
       case 'xl':
         return '1600px'
+      default:
+        return props.size
     }
   }};
 `
+
+/**
+ *  Bootcamp-UI Flex Container
+ */
 
 const FlexContainer = ({
   align,
