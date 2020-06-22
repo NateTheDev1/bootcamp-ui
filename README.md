@@ -37,15 +37,6 @@ class Example extends Component {
 
 ## Button
 
-| Prop      | Prop Type | Required | Example         | Options                         | Default   |
-| --------- | --------- | -------- | --------------- | ------------------------------- | --------- |
-| variant   | boolean   | No       | outlined={true} | outlined, box, boxRound, circle | box       |
-| textColor | String    | No       | "#FFFFF"        | null                            | Black     |
-| width     | String    | No       | "300px"         | null                            | 300px     |
-| height    | String    | No       | "600"           | null                            | 50px      |
-| theme     | String    | No       | "dark"          | null                            | "light"   |
-| semantic  | String    | No       | "danger"        | danger, success                 | "success" |
-
 # License
 
 MIT © [NateTheDev1](https://github.com/NateTheDev1)

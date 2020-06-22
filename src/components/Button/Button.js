@@ -42,8 +42,8 @@ const Btn = styled.button`
         }
     }
   }};
-  width: ${(props) => (props.width !== undefined ? width : '200px')};
-  height: ${(props) => (props.height !== undefined ? height : '50px')};
+  width: ${(props) => (props.width !== undefined ? props.width : '200px')};
+  height: ${(props) => (props.height !== undefined ? props.height : '50px')};
   background: ${(props) => {
     switch (props.variant) {
       case 'dark':
@@ -103,6 +103,12 @@ const Btn = styled.button`
   }
 `
 
+/**
+ *  Bootcamp-UI Basic Button
+ *
+ * @version 0.09
+ */
+
 const Button = ({
   children,
   style,
@@ -131,9 +137,18 @@ const Button = ({
 }
 
 Button.propTypes = {
+  /** Changes the theme of the entire component. */
   variant: PropTypes.bool,
+  /** Width of the component. */
   width: PropTypes.string,
+  /** Height of the component. */
   height: PropTypes.string
+}
+
+Button.defaultProps = {
+  variant: 'light',
+  width: '200px',
+  height: '50px'
 }
 
 export default Button
