@@ -1,19 +1,17 @@
 import React from 'react'
 
-import { ExampleComponent, Button } from 'bootcamp-ui'
+import { Button, FlexContainer } from 'bootcamp-ui'
 
 const App = () => {
   return (
-    <div
+    <FlexContainer
       style={{
-        margin: '0 auto',
-        marginTop: '5%',
-        maxWidth: '1440px',
-        textAlign: 'center'
+        border: '1px solid red'
       }}
     >
       <Button onClick={() => console.log('clicked')}>EXIT</Button>
-    </div>
+      <Button onClick={() => console.log('clicked')}>EXIT</Button>
+    </FlexContainer>
   )
 }
 

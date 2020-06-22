@@ -138,17 +138,20 @@ const Button = ({
 
 Button.propTypes = {
   /** Changes the theme of the entire component. */
-  variant: PropTypes.bool,
+  variant: PropTypes.string,
   /** Width of the component. */
   width: PropTypes.string,
   /** Height of the component. */
-  height: PropTypes.string
+  height: PropTypes.string,
+  /** The semantic colors of the component */
+  semantic: PropTypes.string
 }
 
 Button.defaultProps = {
   variant: 'light',
   width: '200px',
-  height: '50px'
+  height: '50px',
+  semantic: 'default'
 }
 
 export default Button
