@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './components/Button'
+import './styles.module.css'
 
 const ExampleComponent = ({ text }) => {
   const styles = {
