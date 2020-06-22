@@ -40,14 +40,20 @@ const Input = styled.input`
   }};
   padding: 2%;
   border-radius: 5px;
-  max-width: ${(props) => {
-    switch (props.size) {
-      case 'sm':
-        return '200px'
-      case 'md':
-        return '350px'
-      case 'lg':
-        return '500px'
+  width: ${(props) => {
+    if (props.fullWidth === true) {
+      return '100%'
+    } else {
+      switch (props.size) {
+        case 'sm':
+          return '200px'
+        case 'md':
+          return '350px'
+        case 'lg':
+          return '500px'
+        default:
+          return '350px'
+      }
     }
   }};
 
@@ -58,6 +64,13 @@ const Input = styled.input`
   }
 
   :hover {
+    color: ${(props) => {
+      if (props.variant === 'dark') {
+        return '#0566F8'
+      } else {
+        return 'black'
+      }
+    }};
     background: rgba(33, 33, 33, 0.05);
   }
 `
@@ -66,7 +79,10 @@ const Input = styled.input`
  *  Bootcamp-UI TextInput
  */
 
-const TextInput = ({ placeholder, size, variant, validated }, { ...rest }) => {
+const TextInput = (
+  { placeholder, size, variant, validated, fullWidth },
+  { ...rest }
+) => {
   return (
     <Input
       type='text'
@@ -75,6 +91,7 @@ const TextInput = ({ placeholder, size, variant, validated }, { ...rest }) => {
       size={size}
       variant={variant}
       validated={validated}
+      fullWidth={fullWidth}
     />
   )
 }
@@ -92,7 +109,7 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   fullWidth: false,
-  size: 'lg',
+  size: 'sm',
   variant: 'light',
   validated: true
 }
