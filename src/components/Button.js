@@ -4,103 +4,126 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Btn = styled.button`
-  border: 'none';
-  color: ${(props) => (props.textColor !== undefined ? textColor : 'red')};
-  width: ${(props) => (props.width !== undefined ? width : '300px')};
+  border: ${(props) => {
+    switch (props.semantic) {
+      case 'danger':
+        if (props.variant === 'dark') {
+          return '3px solid #BB121A'
+        } else {
+          return '1px solid #BB121A'
+        }
+      case 'success':
+        if (props.variant === 'dark') {
+          return '3px solid #38BF2F'
+        } else {
+          return '1px solid #38BF2F'
+        }
+      default:
+        if (props.variant === 'dark') {
+          return '3px solid #0566F8'
+        } else {
+          return '1px solid #0566F8'
+        }
+    }
+  }};
+  border-radius: 5px;
+  color: ${(props) => {
+    switch (props.variant) {
+      case 'dark':
+        return 'white'
+      default:
+        switch (props.semantic) {
+          case 'danger':
+            return '#BB121A'
+          case 'success':
+            return '#38BF2F'
+          default:
+            return '#0566F8'
+        }
+    }
+  }};
+  width: ${(props) => (props.width !== undefined ? width : '200px')};
   height: ${(props) => (props.height !== undefined ? height : '50px')};
-  background: black;
-  transition: 1s;
-  ${(props) => props.generateVariantLight()};
+  background: ${(props) => {
+    switch (props.variant) {
+      case 'dark':
+        return '#212121'
+      default:
+        return 'white'
+    }
+  }};
+  transition: all ease-in-out 0.3s;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1rem;
 
   :hover {
-    background: white;
-    cursor: 'pointer';
-    box-shadow: '0px 10px 13px -7px #000000';
+    background: ${(props) => {
+      switch (props.variant) {
+        case 'dark':
+          return 'rgba(33, 33, 33, 0.8)'
+        default:
+          switch (props.semantic) {
+            case 'danger':
+              return '#BB121A'
+            case 'success':
+              return '#38BF2F'
+            default:
+              return '#0566F8'
+          }
+      }
+    }};
+    color: white;
+    border: ${(props) => {
+      switch (props.semantic) {
+        case 'danger':
+          if (props.variant === 'dark') {
+            return '3px solid #BB121A'
+          } else {
+            return '1px solid #BB121A'
+          }
+        case 'success':
+          if (props.variant === 'dark') {
+            return '3px solid #38BF2F'
+          } else {
+            return '1px solid #38BF2F'
+          }
+        default:
+          if (props.variant === 'dark') {
+            return '3px solid #0566F8'
+          } else {
+            return '1px solid #0566F8'
+          }
+      }
+    }};
+    cursor: pointer;
+    box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+    transform: translate(0px, -4px) scale(0.98);
   }
 `
 
 const Button = ({
-  textColor,
   children,
   style,
   onClick,
   disabled,
   width,
   height,
-  theme,
   variant,
   type,
   semantic
 }) => {
-  // const generateVariantDark = () => {
-  //   switch (variant) {
-  //     case 'outlined':
-  //       return { border: '1px solid black' }
-  //   }
-  // }
-
-  const generateVariantLight = () => {
-    switch (variant) {
-      case 'outlined':
-        return { border: '1px solid black' }
-    }
-  }
-
-  // let styles
-
-  /* 
-  // if (!semantic) {
-  //   switch (theme) {
-  //     case 'dark':
-  //       styles = {
-  //         ...generateVariantDark(),
-  //         ...style
-  //       }
-  //     default:
-  // styles = {
-  //   border: 'none',
-  //   color: textColor !== undefined ? textColor : 'white',
-  //   width: width !== undefined ? width : '300px',
-  //   height: height !== undefined ? height : '50px',
-  //   background: 'black',
-  //   transition: '1s',
-  //   ...generateVariantLight(),
-  //   ...style,
-  //   '&:hover': {
-  //     background: 'white',
-  //     cursor: 'pointer',
-  //     boxShadow: '0px 10px 13px -7px #000000'
-  //   }
-  //       }
-  //   }
-  // } */
-
-  /* // if (semantic) {
-  //   switch (semantic) {
-  //     case 'danger':
-  //       styles = {
-  //         ...generateVariantDark(),
-  //         ...style
-  //       }
-  //     default:
-  //       styles = {
-  //         ...generateVariantDark(),
-  //         ...style
-  //       }
-  //   }
-  // } */
-
   return (
     <Btn
-      className='btn1'
       disabled={disabled}
       onClick={onClick}
       type={type}
       style={style}
-      textColor={textColor}
       width={width}
       height={height}
-      generateVariantLight={generateVariantLight}
+      semantic={semantic}
+      variant={variant}
     >
       {children}
     </Btn>
@@ -109,10 +132,8 @@ const Button = ({
 
 Button.propTypes = {
   variant: PropTypes.bool,
-  textColor: PropTypes.string,
   width: PropTypes.string,
-  height: PropTypes.string,
-  theme: PropTypes.string
+  height: PropTypes.string
 }
 
 export default Button

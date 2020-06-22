@@ -7,12 +7,12 @@ const App = () => {
     <div
       style={{
         margin: '0 auto',
+        marginTop: '5%',
         maxWidth: '1440px',
         textAlign: 'center'
       }}
     >
-      <Button onClick={() => console.log('clicked')}>Hello</Button>
-      <button>Second</button>
+      <Button onClick={() => console.log('clicked')}>EXIT</Button>
     </div>
   )
 }
