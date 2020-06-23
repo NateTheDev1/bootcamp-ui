@@ -1,17 +1,6 @@
 # bootcamp-ui
 
-- [bootcamp-ui](#bootcamp-ui)
-  - [Install](#install)
-  - [Usage](#usage)
-- [Components](#components)
-  - [`Button`](#-button-)
-- [License](#license)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-> A prototyping based component library made for easy and quick UI development in React. Made for bootcamp students by a bootcamp student.
-
-[![NPM](https://img.shields.io/npm/v/bootcamp-ui.svg)](https://www.npmjs.com/package/bootcamp-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+StyleGuide Documentation: https://bootcampui.vercel.app/
 
 ### Install
 
@@ -32,10 +21,6 @@ class Example extends Component {
   }
 }
 ```
-
-# Components
-
-## Button
 
 # License
 
