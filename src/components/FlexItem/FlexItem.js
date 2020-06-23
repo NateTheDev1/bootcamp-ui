@@ -6,6 +6,10 @@ const Item = styled.div`
   flex-grow: ${(props) => (props.grow === 'unset' ? 'unset' : props.grow)};
   flex-shrink: ${(props) =>
     props.shrink === 'unset' ? 'unset' : props.shrink};
+  flex-basis: ${(props) => (props.basis === 'unset' ? 'unset' : props.basis)};
+  align-self: ${(props) => (props.align === 'unset' ? 'unset' : props.align)};
+  justify-self: ${(props) =>
+    props.justify === 'unset' ? 'unset' : props.justify};
 `
 
 const FlexItem = (
@@ -41,12 +45,12 @@ FlexItem.propTypes = {
 
 FlexItem.defaultProps = {
   grow: 'unset',
-  shrink: 'unset'
-  //   basis: PropTypes.string,
-  //   flex: PropTypes.string,
-  //   order: PropTypes.number,
-  //   align: PropTypes.string,
-  //   justify: PropTypes.string
+  shrink: 'unset',
+  basis: 'unset',
+  flex: 'unset',
+  order: 'unset',
+  align: 'unset',
+  justify: 'unset'
 }
 
 export default FlexItem
