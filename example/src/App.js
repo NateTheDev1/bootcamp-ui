@@ -1,6 +1,12 @@
 import React from 'react'
 
-import { Button, FlexContainer, TextInput, FlexItem } from 'bootcamp-ui'
+import {
+  Button,
+  FlexContainer,
+  TextInput,
+  FlexItem,
+  Typography
+} from 'bootcamp-ui'
 
 const App = () => {
   return (
@@ -17,6 +23,7 @@ const App = () => {
           placeholder='Username'
         />
       </FlexItem>
+      <Typography variant='md'>Typography Text</Typography>
     </FlexContainer>
   )
 }
